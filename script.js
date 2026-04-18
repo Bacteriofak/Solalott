@@ -94,6 +94,18 @@ document.querySelectorAll('.messenger-btn').forEach(btn => {
     });
 });
 
+// Проверка - была ли уже отправлена форма
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('formSubmitted') === 'true') {
+        // Форма уже была отправлена - скрываем её и показываем сообщение
+        const contactForm = document.querySelector('.contact-form');
+        const alreadySubmittedMsg = document.getElementById('already-submitted-message');
+        
+        if (contactForm) contactForm.style.display = 'none';
+        if (alreadySubmittedMsg) alreadySubmittedMsg.style.display = 'block';
+    }
+});
+
 // Обработка формы через Formspree
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('application-form');
@@ -131,7 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Успешная отправка
+                    // Успешная отправка - сохраняем флаг в localStorage
+                    localStorage.setItem('formSubmitted', 'true');
                     window.location.href = 'thank-you.html';
                 } else {
                     // Ошибка отправки
