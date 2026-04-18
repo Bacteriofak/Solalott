@@ -108,18 +108,20 @@ body {
 
 /* ===== Hero Section ===== */
 .hero {
-    margin-top: 70px;
-    min-height: calc(100vh - 70px);
+    margin-top: 0;
+    padding-top: 70px;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
     gap: 4rem;
-    padding: 3rem 2.5rem;
+    padding-bottom: 3rem;
     background: linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(14, 165, 233, 0.95) 50%, rgba(6, 182, 212, 0.95) 100%);
     color: white;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 1;
 }
 
 .hero::before {
@@ -131,6 +133,7 @@ body {
     height: 600px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
+    z-index: 0;
 }
 
 .hero::after {
@@ -142,12 +145,14 @@ body {
     height: 600px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
+    z-index: 0;
 }
 
 .hero-content {
     z-index: 10;
     animation: fadeInLeft 0.8s ease 0.2s both;
     max-width: 500px;
+    position: relative;
 }
 
 .hero-title {
@@ -196,6 +201,7 @@ body {
 .hero-image {
     z-index: 10;
     animation: fadeInRight 0.8s ease 0.4s both;
+    position: relative;
 }
 
 .image-placeholder {
