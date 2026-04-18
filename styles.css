@@ -141,3 +141,93 @@ body { margin-top: 90px; }
 .mb-4 { margin-bottom: 1.5rem; }
 .mb-lg-0 { margin-bottom: 0; }
 .small { font-size: 0.85rem; }
+
+/* Form Styles */
+.form-label { display: block; font-weight: 600; color: #2C3E50; margin-bottom: 8px; font-size: 14px; }
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #34495E;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #E8ECEF;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+    color: #34495E;
+    background-color: #fff;
+    border-color: #4A90A4;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 164, 0.15);
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #34495E;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 12px;
+    border: 2px solid #E8ECEF;
+    border-radius: 8px;
+    appearance: none;
+    padding-right: 40px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-select:focus {
+    border-color: #4A90A4;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 164, 0.15);
+}
+
+.form-check {
+    display: block;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+    float: left;
+    margin-left: 0;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #E8ECEF;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    accent-color: #4A90A4;
+}
+
+.form-check-input:checked {
+    background-color: #4A90A4;
+    border-color: #4A90A4;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #34495E;
+    cursor: pointer;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.form-check-label a {
+    color: #4A90A4;
+    text-decoration: underline;
+}

@@ -79,7 +79,7 @@ document.querySelectorAll('.messenger-btn').forEach(btn => {
 });
 
 // Обработка формы
-document.getElementById('consultationForm').addEventListener('submit', function(e) {
+document.getElementById('application-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
     // Собираем данные
@@ -88,35 +88,64 @@ document.getElementById('consultationForm').addEventListener('submit', function(
         phone: document.querySelector('[name="phone"]').value,
         age: document.querySelector('[name="age"]').value,
         email: document.querySelector('[name="email"]').value,
-        messenger: document.querySelector('[name="messenger"]:checked').value,
+        messenger: document.querySelector('[name="messenger"]').value,
         city: document.querySelector('[name="city"]').value,
-        mental_health: document.querySelector('[name="mental_health"]').value,
-        rating: document.querySelector('[name="rating"]:checked').value,
-        video_watched: document.querySelector('[name="video_watched"]').checked,
-        video_answer: document.querySelector('[name="video_answer"]').value,
+        mental: document.querySelector('[name="mental"]').value,
+        importance: document.querySelector('[name="importance"]').value,
+        video_watched: document.querySelector('[name="video_watched"]:checked') ? document.querySelector('[name="video_watched"]:checked').value : 'Нет',
+        video_response: document.querySelector('[name="video_response"]').value,
+        privacy_agreed: document.querySelector('[name="privacy_check"]').checked,
         date: new Date().toLocaleString('ru-RU')
     };
 
     // Проверяем видео
-    if (!formData.video_watched) {
+    if (!document.querySelector('[name="video_watched"]:checked')) {
         alert('❌ Пожалуйста, подтвердите, что вы посмотрели видео!');
         return;
     }
 
+    // Проверяем согласие с политикой конфиденциальности
+    if (!formData.privacy_agreed) {
+        alert('❌ Пожалуйста, согласитесь с политикой конфиденциальности!');
+        return;
+    }
+
     // Сохраняем в localStorage
-    let submissions = JSON.parse(localStorage.getItem('consultationSubmissions') || '[]');
+    let submissions = JSON.parse(localStorage.getItem('applicationSubmissions') || '[]');
     submissions.push(formData);
-    localStorage.setItem('consultationSubmissions', JSON.stringify(submissions));
+    localStorage.setItem('applicationSubmissions', JSON.stringify(submissions));
 
-    // Успешное сообщение
-    alert('✅ Спасибо за заявку! Вы будете добавлены в мой список на консультацию. Я свяжусь с вами в ближайшее время.');
+    // Отправляем на email через FormSubmit.co
+    const formElement = document.getElementById('application-form');
+    const emailData = new FormData();
+    
+    emailData.append('_captcha', 'false');
+    emailData.append('_next', window.location.href);
+    
+    Object.keys(formData).forEach(key => {
+        emailData.append(key, formData[key]);
+    });
 
-    // Формируем текст для копирования
-    const text = `Новая заявка на консультацию!\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nВозраст: ${formData.age}\nEmail: ${formData.email}\nМессенджер: ${formData.messenger}\nГород: ${formData.city}\nПсихические заболевания: ${formData.mental_health || 'Нет'}\nВажность (1-10): ${formData.rating}\nВидео просмотрено: ${formData.video_watched ? 'Да' : 'Нет'}\nОтвет на вопрос: ${formData.video_answer}\nДата: ${formData.date}`;
+    fetch('https://formsubmit.co/stopataka@gmail.com', {
+        method: 'POST',
+        body: emailData
+    }).then(response => {
+        // Успешное сообщение
+        alert('✅ Спасибо за заявку! Вы будете добавлены в мой список на консультацию. Я свяжусь с вами в ближайшее время.');
+        
+        // Формируем текст для консоли
+        const text = `Новая заявка на консультацию!\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nВозраст: ${formData.age}\nEmail: ${formData.email}\nМессенджер: ${formData.messenger}\nГород: ${formData.city}\nПсихические заболевания: ${formData.mental}\nВажность (1-10): ${formData.importance}\nВидео просмотрено: ${formData.video_watched}\nОтвет на вопрос: ${formData.video_response}\nДата: ${formData.date}`;
 
-    console.log('%c📋 ДАННЫЕ ЗАЯВКИ:', 'color: green; font-weight: bold; font-size: 14px;');
-    console.log(text);
-    console.log('%c✅ Данные сохранены в localStorage', 'color: green; font-weight: bold;');
+        console.log('%c📋 ДАННЫЕ ЗАЯВКИ:', 'color: green; font-weight: bold; font-size: 14px;');
+        console.log(text);
+        console.log('%c✅ Данные сохранены и отправлены', 'color: green; font-weight: bold;');
+        
+        // Очищаем форму
+        formElement.reset();
+    }).catch(error => {
+        console.error('Ошибка при отправке:', error);
+        alert('⚠️ Заявка сохранена локально, но ошибка при отправке на email. Свяжитесь с нами directly.');
+    });
 
     // Очищаем форму
     this.reset();
