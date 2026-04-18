@@ -23,6 +23,26 @@ function toggleMobileMenu() {
     navSection.classList.toggle('active');
 }
 
+// Функция для правильного склонения слова "место"
+function declensionPlaces(number) {
+    const cases = ['место', 'места', 'мест'];
+    let n = number % 100;
+    
+    if (n > 10 && n < 20) {
+        return cases[2]; // для 11-19 (мест)
+    }
+    
+    n = number % 10;
+    if (n === 1) {
+        return cases[0]; // для 1, 21, 31 и т.д. (место)
+    }
+    if (n > 1 && n < 5) {
+        return cases[1]; // для 2-4, 22-24 и т.д. (места)
+    }
+    
+    return cases[2]; // для остальных (мест)
+}
+
 // Обновление месяца и количества мест в badge
 function updateBadgeText() {
     const now = new Date();
@@ -38,13 +58,16 @@ function updateBadgeText() {
     const seed = year * 12 + month;
     const random = (seed * 9301 + 49297) % 233280;
     const places = 3 + (random % 4); // от 3 до 6
+    const placesWord = declensionPlaces(places);
     
     // Обновляем текст
     const monthElement = document.getElementById('monthName');
     const placesElement = document.getElementById('placesCount');
+    const placesTextElement = document.getElementById('placesText');
     
     if (monthElement) monthElement.textContent = months[month];
     if (placesElement) placesElement.textContent = places;
+    if (placesTextElement) placesTextElement.textContent = placesWord;
 }
 
 // Вызываем обновление при загрузке страницы
