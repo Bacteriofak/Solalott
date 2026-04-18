@@ -1,5 +1,21 @@
-// ЗАЩИТА ОТ КОПИРОВАНИЯ
+// ЗАЩИТА ОТ КОПИРОВАНИЯ И ВЫДЕЛЕНИЯ
 document.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
+
+// Отключение выделения текста
+document.addEventListener('selectstart', (e) => { e.preventDefault(); });
+
+// Отключение перетаскивания изображений
+document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+// Отключение выделения через JavaScript
+document.body.style.userSelect = 'none';
+document.body.style.webkitUserSelect = 'none';
+document.body.style.MozUserSelect = 'none';
+document.body.style.msUserSelect = 'none';
 
 // ФУНКЦИИ САЙТА
 function toggleMobileMenu() {
@@ -78,74 +94,60 @@ document.querySelectorAll('.messenger-btn').forEach(btn => {
     });
 });
 
-// Обработка формы
-document.getElementById('application-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Собираем данные
-    const formData = {
-        name: document.querySelector('[name="name"]').value,
-        phone: document.querySelector('[name="phone"]').value,
-        age: document.querySelector('[name="age"]').value,
-        email: document.querySelector('[name="email"]').value,
-        messenger: document.querySelector('[name="messenger"]').value,
-        city: document.querySelector('[name="city"]').value,
-        mental: document.querySelector('[name="mental"]').value,
-        importance: document.querySelector('[name="importance"]').value,
-        video_watched: document.querySelector('[name="video_watched"]:checked') ? document.querySelector('[name="video_watched"]:checked').value : 'Нет',
-        video_response: document.querySelector('[name="video_response"]').value,
-        privacy_agreed: document.querySelector('[name="privacy_check"]').checked,
-        date: new Date().toLocaleString('ru-RU')
-    };
-
-    // Проверяем видео
-    if (!document.querySelector('[name="video_watched"]:checked')) {
-        alert('❌ Пожалуйста, подтвердите, что вы посмотрели видео!');
-        return;
-    }
-
-    // Проверяем согласие с политикой конфиденциальности
-    if (!formData.privacy_agreed) {
-        alert('❌ Пожалуйста, согласитесь с политикой конфиденциальности!');
-        return;
-    }
-
-    // Сохраняем в localStorage
-    let submissions = JSON.parse(localStorage.getItem('applicationSubmissions') || '[]');
-    submissions.push(formData);
-    localStorage.setItem('applicationSubmissions', JSON.stringify(submissions));
-
-    // Отправляем на email через FormSubmit.co
-    const formElement = document.getElementById('application-form');
-    const emailData = new FormData();
+// Обработка формы через Formspree
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('application-form');
     
-    emailData.append('_captcha', 'false');
-    emailData.append('_next', window.location.href);
-    
-    Object.keys(formData).forEach(key => {
-        emailData.append(key, formData[key]);
-    });
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    fetch('https://formsubmit.co/stopataka@gmail.com', {
-        method: 'POST',
-        body: emailData
-    }).then(response => {
-        // Успешное сообщение
-        alert('✅ Спасибо за заявку! Вы будете добавлены в мой список на консультацию. Я свяжусь с вами в ближайшее время.');
-        
-        // Формируем текст для консоли
-        const text = `Новая заявка на консультацию!\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nВозраст: ${formData.age}\nEmail: ${formData.email}\nМессенджер: ${formData.messenger}\nГород: ${formData.city}\nПсихические заболевания: ${formData.mental}\nВажность (1-10): ${formData.importance}\nВидео просмотрено: ${formData.video_watched}\nОтвет на вопрос: ${formData.video_response}\nДата: ${formData.date}`;
+            // Проверяем видео
+            if (!document.querySelector('[name="video_watched"]:checked')) {
+                alert('❌ Пожалуйста, подтвердите, что вы посмотрели видео!');
+                return;
+            }
 
-        console.log('%c📋 ДАННЫЕ ЗАЯВКИ:', 'color: green; font-weight: bold; font-size: 14px;');
-        console.log(text);
-        console.log('%c✅ Данные сохранены и отправлены', 'color: green; font-weight: bold;');
-        
-        // Очищаем форму
-        formElement.reset();
-    }).catch(error => {
-        console.error('Ошибка при отправке:', error);
-        alert('⚠️ Заявка сохранена локально, но ошибка при отправке на email. Свяжитесь с нами directly.');
-    });
+            // Проверяем согласие с политикой конфиденциальности
+            if (!document.querySelector('[name="privacy_check"]:checked')) {
+                alert('❌ Пожалуйста, согласитесь с политикой конфиденциальности!');
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            // Отключаем кнопку отправки на время отправки
+            const submitBtn = this.querySelector('[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+
+            fetch('https://formspree.io/f/mnnqyedw', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Успешная отправка
+                    window.location.href = 'thank-you.html';
+                } else {
+                    // Ошибка отправки
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    alert('❌ Произошла ошибка при отправке формы. Пожалуйста, попробуйте ещё раз.');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при отправке:', error);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                alert('❌ Произошла ошибка при отправке формы. Пожалуйста, проверьте интернет-соединение.');
+            });
+        });
+    }
 
     // Очищаем форму
     this.reset();
