@@ -3,172 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Алексей Солоницын - Специалист по работе с подсознанием</title>
+    <title>Стоп-Атака - Избавление от панических атак</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo">Алексей Солоницын</div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link active">Главная</a>
-                <a href="#about" class="nav-link">Обо мне</a>
-                <a href="#services" class="nav-link">Услуги</a>
-                <a href="#testimonials" class="nav-link">Отзывы</a>
-                <a href="#contact" class="nav-link">Контакты</a>
-            </div>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+<div id="stop-ataka-wrapper">
+    <header class="top-header">
+        <div class="container header-content">
+            <div class="header-wrapper">
+                <a href="#home" class="logo">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>Стоп-Атака</span>
+                </a>
+                <div class="header-nav-section" id="headerNavSection">
+                    <ul class="main-nav">
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#process">Программа</a></li>
+                        <li><a href="#who-help">Кому помогу</a></li>
+                        <li><a href="#video">Видео</a></li>
+                    </ul>
+                    <div class="header-buttons">
+                        <a href="#consultation-form" class="btn-header btn-free">Бесплатная консультация</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Преодоление панических атак через работу с подсознанием</h1>
-            <p class="hero-subtitle">Освободитесь от страха и тревоги. Измените вашу жизнь за 8 недель.</p>
-            <a href="#contact" class="cta-button">
-                <i class="fas fa-calendar"></i>
-                Записаться на бесплатную консультацию
-            </a>
-        </div>
-        <div class="hero-image">
-            <div class="image-placeholder">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="100" cy="100" r="95" fill="url(#grad1)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-                    <circle cx="100" cy="70" r="25" fill="rgba(255,255,255,0.2)"/>
-                    <path d="M 70 115 Q 100 130 130 115" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <path d="M 75 95 Q 78 90 82 95" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M 118 95 Q 122 90 125 95" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                </svg>
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="fade-in-up">
+                        <div class="urgent-badge">
+                            <i class="fas fa-clock"></i> Только 5 мест на бесплатную консультацию в апреле
+                        </div>
+                        <h1>Готовы раз и навсегда попрощаться с паническими атаками?</h1>
+                        <p class="lead">Успейте записаться</p>
+                        <div class="mt-4">
+                            <a href="#consultation-form" class="btn-primary-custom">Записаться на бесплатную консультацию</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-image"> 
+                        <img src="https://static.tildacdn.com/tild6663-3736-4963-b764-336166366230/1_2.png?w=600&h=700&fit=crop" alt="Алексей Солоницын">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-image">
-                <div class="image-placeholder large">
-                    <img src="https://static.tildacdn.com/tild6263-6162-4432-a464-376335383662/Untitled-1.png" alt="Алексей Солоницын" style="width: 100%; height: 100%; object-fit: cover;">
+    <section class="help-section">
+        <div class="container">
+            <div class="help-header">
+                <h2>Я знаю, как вам помочь!</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <p style="font-size: 18px; text-align: center; margin-bottom: 40px;">
+                        Моя программа <strong>"Стоп-Атака"</strong> доказала свою эффективность и позволяет достичь этой цели за 2 месяца без лекарств и больниц.
+                    </p>
+                    <div class="help-list">
+                        <li><i class="fas fa-heart"></i> Я помогу вам освободиться от страха смерти и кошмаров, чтобы вы могли наслаждаться жизнью.</li>
+                        <li><i class="fas fa-search"></i> Я помогу вам найти и устранить корень проблемы, чтобы вы могли жить свободно и счастливо.</li>
+                        <li><i class="fas fa-rocket"></i> Не откладывайте свое здоровье на потом - начните свой путь к благополучию уже сегодня!</li>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="#consultation-form" class="btn-primary-custom">Записаться на бесплатную консультацию</a>
+                    </div>
                 </div>
             </div>
-            <div class="about-content">
+        </div>
+    </section>
+
+    <section class="problem-section" id="problem">
+        <div class="container">
+            <div class="section-title">
+                <h2>Если вы столкнулись с одной из этих проблем:</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="symptom-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <p>Во время приступов вы испытываете одышку, нехватку воздуха, учащенное сердцебиение, боль в груди, тремор, страх смерти.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Вы живете в постоянном напряжении и страхе, ожидая очередной приступ.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fas fa-user-md"></i>
+                        <p>Врачи и специалисты ничего не помогают. Вы все испробовали, но приступы продолжаются.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <i class="fas fa-frown"></i>
+                        <p>Вы не живете полноценной счастливой жизнью. Отказываетесь от важных событий и встреч.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ready-help-section">
+        <div class="container">
+            <div class="ready-help-box">
+                <h2>Я готов помочь вам!</h2>
+                <p style="font-size: 18px; line-height: 1.8;">
+                    Запишитесь на бесплатную консультацию. Вместе мы выявим препятствия, мешающие вашему счастью, и найдем пути к их преодолению.
+                </p>
+                <div class="mt-4">
+                    <a href="#consultation-form" class="btn-primary-custom">Записаться на бесплатную консультацию</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title">
                 <h2>Обо мне</h2>
-                <p class="subtitle">Меня зовут Алексей Солоницын</p>
-                <p class="description">Я — специалист по работе с подсознанием, сертифицированный эксперт в области холистической терапии сознания, специалист American Academy of Holistic Mind therapy, исследователь подсознательных процессов и их влияния на жизнь, нейропрактик, создатель уникальных авторских методик "Возрождение жизни" и "Стоп-Атака". И уникального онлайн курса "Старт к новой жизни".</p>
-                <h3>Почему именно я?</h3>
-                <div class="credentials">
-                    <div class="credential-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Панические атаки знакомы мне не понаслышке — я видел, как страдали мои близкие. Их боль и отсутствие результатов от традиционных методов лечения побудили меня искать выход.</span>
-                    </div>
-                    <div class="credential-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Нашел решение проблемы панических атак. Я искал подходящие инструменты в течение многих лет и нашел их. Благодаря этому я смог помочь многим людям преодолеть панические атаки.</span>
-                    </div>
-                    <div class="credential-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Готов помочь вам пройти трансформацию. Я готов стать вашим проводником на пути к изменениям, помогать и поддерживать. Но не забывайте: этот путь нужно пройти самому.</span>
-                    </div>
-                </div>
-                <p class="description" style="margin-top: 2rem;">Моя программа помогает преодолеть ограничения и страхи благодаря работе на уровне подсознания. Сеансы проходят дистанционно, через Skype, WhatsApp или Telegram, чтобы вы могли получать помощь из любой точки мира.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="services-container">
-            <h2>Мои услуги</h2>
-            <p class="section-subtitle">Современные и эффективные методики преодоления панических атак</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🧠</div>
-                    <h3>Работа с подсознанием</h3>
-                    <p>Глубинная проработка на уровне подсознания для преодоления ограничений и страхов</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>Методика "Стоп-Атака"</h3>
-                    <p>Уникальная авторская методика для эффективного избавления от панических атак</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌱</div>
-                    <h3>Методика "Возрождение жизни"</h3>
-                    <p>Комплексная программа восстановления внутренней гармонии и жизненной силы</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Онлайн курс "Старт к новой жизни"</h3>
-                    <p>Видеоуроки, практические занятия и домашние задания для самостоятельной работы</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📞</div>
-                    <h3>Дистанционные консультации</h3>
-                    <p>Сеансы через Skype, WhatsApp или Telegram из любой точки мира</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3>Трансформация за 8 недель</h3>
-                    <p>Структурированная программа изменения убеждений и преодоления негативных паттернов</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="testimonials-container">
-            <h2>Отзывы клиентов</h2>
-            <p class="section-subtitle">Истории успеха и благодарности наших клиентов</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Методика действительно работает! За несколько недель я почувствовал значительные изменения. Панические атаки стали намного реже, а мой сон улучшился."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">И.П.</div>
-                        <div>
-                            <p class="author-name">Иван П.</p>
-                            <p class="author-title">Предприниматель</p>
-                        </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="about-image">
+                        <img src="https://static.tildacdn.com/tild6263-6162-4432-a464-376335383662/Untitled-1.png" alt="Алексей Солоницын">
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Спасибо за профессиональный подход и внимательное отношение. Вы помогли мне разобраться с внутренними блоками и найти решение."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">Е.С.</div>
-                        <div>
-                            <p class="author-name">Екатерина С.</p>
-                            <p class="author-title">Руководитель компании</p>
+                <div class="col-lg-7">
+                    <div class="about-content">
+                        <h3>Меня зовут Алексей Солоницын</h3>
+                        <p>Я — специалист по работе с подсознанием, сертифицированный эксперт в области холистической терапии сознания, специалист American Academy of Holistic Mind therapy.</p>
+                        <h3>Почему именно я?</h3>
+                        <div class="credentials">
+                            <div class="credential-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Панические атаки знакомы мне не понаслышке. Их боль побудила меня искать решение.</span>
+                            </div>
+                            <div class="credential-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Я нашел эффективное решение и помог многим людям преодолеть панические атаки.</span>
+                            </div>
+                            <div class="credential-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Готов помочь вам пройти трансформацию. Я буду вашим проводником и поддержкой.</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Я не верила, что это поможет, но результаты превзошли мои ожидания. Теперь я живу без страха и тревоги. Рекомендую всем!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">А.М.</div>
-                        <div>
-                            <p class="author-name">Алексей М.</p>
-                            <p class="author-title">Психолог</p>
+                        <div class="mt-4">
+                            <a href="#consultation-form" class="btn-primary-custom">Записаться на бесплатную консультацию</a>
                         </div>
                     </div>
                 </div>
@@ -176,70 +165,316 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <h2>Свяжитесь со мной</h2>
-            <p class="section-subtitle">Готов помочь вам в пути к личной трансформации</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <h3>Телефон</h3>
-                        <p>+7 (999) 123-45-67</p>
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ваша трансформация за 8 недель</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Выявление истинной причины</h4>
+                        <p>Мы определяем глубокие механизмы, которые запускают приступы, а не просто симптомы.</p>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">📧</div>
-                        <h3>Email</h3>
-                        <p>info@example.com</p>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Проработка эмоций</h4>
+                        <p>Разбираем скрытые эмоции и страхи, которые вызывают приступы.</p>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">💬</div>
-                        <h3>Мессенджеры</h3>
-                        <p>WhatsApp, Telegram</p>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Анализ убеждений</h4>
+                        <p>Заменяем ограничивающие убеждения на здоровые и ресурсные.</p>
                     </div>
-                    <div class="info-item">
-                        <div class="info-icon">🕒</div>
-                        <h3>Время приёма</h3>
-                        <p>Пн-Пт: 10:00-19:00</p>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Работа с прошлым</h4>
+                        <p>Исследуем прошлые травмы и разрешаем их.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h4>Выражение эмоций</h4>
+                        <p>Помогаем безопасно выразить и освободиться от заблокированных чувств.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h4>Переосмысление</h4>
+                        <p>Ищем позитивные способы интерпретации прошлого.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <h4>Преодоление паттернов</h4>
+                        <p>Анализируем и меняем деструктивные модели поведения.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">8</div>
+                        <h4>Трансформация</h4>
+                        <p>Полная перестройка ваших убеждений и восстановление внутренней гармонии.</p>
                     </div>
                 </div>
-
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Ваше имя" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Ваш email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Ваш телефон">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">
-                        <i class="fas fa-paper-plane"></i>
-                        Отправить запрос
-                    </button>
-                </form>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#consultation-form" class="btn-primary-custom">Записаться на бесплатную консультацию</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы клиентов</h2>
+                <p>Видеоотзывы</p>
+            </div>
+            <div class="video-testimonials">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/vRe7kISWdyI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Илины</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/0zk-wumpV7M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Валерии</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/Z71CxkX579A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Дмитрия</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/9t22ivqLo5g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Марии</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/1-gpSKmMNYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Веры</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/WS-WtR-1Eps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Евгения</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/AvLuL16_ZyM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Николая</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/q3dSSRt8s40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Людмилы</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="video-testimonial-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/zlaKV3jDpws" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Видеоотзыв Павла</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section" id="video">
+        <div class="container">
+            <h2>Как мы будем работать:</h2>
+            <p style="font-size: 20px; margin-bottom: 20px;">Посмотрите видео на сайте</p>
+            <div class="video-alert">
+                <i class="fas fa-exclamation-circle"></i> ВИДЕО ОБЯЗАТЕЛЬНО К ПРОСМОТРУ!
+            </div>
+            <p style="font-size: 18px; margin-bottom: 40px;">Ответы на многие ваши вопросы есть в видео.</p>
+            <div class="main-video-wrapper">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/H00WrLCT4Kk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="mt-5">
+                <a href="#consultation-form" class="btn-warning-custom">Записаться на бесплатную консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="who-help-section" id="who-help">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cannot-help-box">
+                        <h2>Кому я не помогу:</h2>
+                        <p style="font-size: 17px; line-height: 1.8;">
+                            Тем, кто не достаточно мотивирован, у кого есть желание, но нет действительного намерения менять жизнь.
+                        </p>
+                    </div>
+                    <div class="can-help-box">
+                        <h2>Кому я помогу:</h2>
+                        <ul class="can-help-list">
+                            <li><i class="fas fa-check-circle"></i> <span>Тем, кто берёт ответственность за свою жизнь</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Кто твёрдо намерен избавиться от панических атак</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Кто мечтает вернуться к активной жизни</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Кто готов меняться ради лучшего будущего</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Кто ценит профессиональную помощь</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="consultation-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="contact-form">
+                        <h2>Запишитесь на бесплатную консультацию</h2>
+                        <p>Проводится онлайн в Telegram, WhatsApp, Viber, Max</p>
+                        <form id="consultationForm">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Ваше имя *</label>
+                                <input type="text" class="form-control form-control-custom" name="name" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Ваш номер WhatsApp / Telegram / Max *</label>
+                                <input type="tel" class="form-control form-control-custom" name="phone" placeholder="+7 (999) 123-45-67" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Ваш возраст *</label>
+                                <input type="number" class="form-control form-control-custom" name="age" min="18" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Ваш EMAIL *</label>
+                                <input type="email" class="form-control form-control-custom" name="email" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Мессенджер для связи *</label>
+                                <div class="messenger-buttons">
+                                    <label class="messenger-btn"><input type="radio" name="messenger" value="WhatsApp" required> <i class="fab fa-whatsapp"></i> WhatsApp</label>
+                                    <label class="messenger-btn"><input type="radio" name="messenger" value="Telegram"> <i class="fab fa-telegram"></i> Telegram</label>
+                                    <label class="messenger-btn"><input type="radio" name="messenger" value="Max"> <i class="fas fa-comment"></i> Max</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Из какого вы города? *</label>
+                                <input type="text" class="form-control form-control-custom" name="city" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Психические заболевания? (Если да - укажите) *</label>
+                                <textarea class="form-control form-control-custom" name="mental_health" rows="3"></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Насколько важно избавиться от панических атак? (1-10) *</label>
+                                <div class="rating-buttons">
+                                    <input type="radio" id="r1" name="rating" value="1" required><label for="r1">1</label>
+                                    <input type="radio" id="r2" name="rating" value="2"><label for="r2">2</label>
+                                    <input type="radio" id="r3" name="rating" value="3"><label for="r3">3</label>
+                                    <input type="radio" id="r4" name="rating" value="4"><label for="r4">4</label>
+                                    <input type="radio" id="r5" name="rating" value="5"><label for="r5">5</label>
+                                    <input type="radio" id="r6" name="rating" value="6"><label for="r6">6</label>
+                                    <input type="radio" id="r7" name="rating" value="7"><label for="r7">7</label>
+                                    <input type="radio" id="r8" name="rating" value="8"><label for="r8">8</label>
+                                    <input type="radio" id="r9" name="rating" value="9"><label for="r9">9</label>
+                                    <input type="radio" id="r10" name="rating" value="10"><label for="r10">10</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <div class="video-confirmation">
+                                    <input type="checkbox" name="video_watched" id="videoWatched" required>
+                                    <label for="videoWatched">Я посмотрел видео (обязательно!)</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Ваш ответ на вопрос из видео *</label>
+                                <textarea class="form-control form-control-custom" name="video_answer" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="checkbox" name="agree" id="agreeCheck" required>
+                                <label for="agreeCheck">Согласен с политикой конфиденциальности *</label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn-primary-custom">
+                                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="sa-footer-wrapper">
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Алексей Солоницын. Все права защищены.</p>
-            <div class="social-links">
-                <a href="#" class="social-link">Facebook</a>
-                <a href="#" class="social-link">Instagram</a>
-                <a href="#" class="social-link">LinkedIn</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>Стоп-Атака</h5>
+                    <p>Профессиональная помощь в преодолении панических атак. Авторская программа Алексея Солоницына.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@AlexeySolonicyn" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h5>Навигация</h5>
+                    <ul>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#testimonials">Отзывы</a></li>
+                        <li><a href="#process">Программа</a></li>
+                        <li><a href="#problem">О проблеме</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h5>Информация</h5>
+                    <ul>
+                        <li><a href="#who-help">Кому помогу</a></li>
+                        <li><a href="#consultation-form">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5>Контакты</h5>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> stopataka@gmail.com</li>
+                        <li style="margin-top: 15px; font-size: 12px;">18+</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Стоп-Атака. Все права защищены.</p>
+                <p class="small text-center mt-3">Консультация не заменяет медицинскую помощь.</p>
             </div>
         </div>
     </footer>
+</div>
 
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
