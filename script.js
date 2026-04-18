@@ -7,6 +7,39 @@ function toggleMobileMenu() {
     navSection.classList.toggle('active');
 }
 
+// Обновление месяца и количества мест в badge
+function updateBadgeText() {
+    const now = new Date();
+    const month = now.getMonth(); // 0-11
+    const year = now.getFullYear();
+    
+    // Словарь месяцев
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+                    'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    
+    // Генерируем консистентное случайное число на основе месяца
+    // Это число будет одинаково весь месяц
+    const seed = year * 12 + month;
+    const random = (seed * 9301 + 49297) % 233280;
+    const places = 3 + (random % 4); // от 3 до 6
+    
+    // Обновляем текст
+    const monthElement = document.getElementById('monthName');
+    const placesElement = document.getElementById('placesCount');
+    
+    if (monthElement) monthElement.textContent = months[month];
+    if (placesElement) placesElement.textContent = places;
+}
+
+// Вызываем обновление при загрузке страницы
+document.addEventListener('DOMContentLoaded', updateBadgeText);
+// И сразу же (на случай если DOMContentLoaded уже прошло)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateBadgeText);
+} else {
+    updateBadgeText();
+}
+
 // Smooth scroll и active links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
