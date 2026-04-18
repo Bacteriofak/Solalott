@@ -183,11 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('❌ Произошла ошибка при отправке формы. Пожалуйста, проверьте интернет-соединение.');
             });
         });
+        
+        // Очищаем форму
+        form.reset();
+        document.querySelectorAll('.messenger-btn').forEach(b => b.classList.remove('active'));
     }
-
-    // Очищаем форму
-    this.reset();
-    document.querySelectorAll('.messenger-btn').forEach(b => b.classList.remove('active'));
 });
 
 // ScrollReveal анимации
