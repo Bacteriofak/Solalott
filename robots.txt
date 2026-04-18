@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /privacy.html
+Allow: /cookies.html
+Allow: /disclaimer.html
+Allow: /terms.html
+Disallow: /thank-you.html
+
+Sitemap: https://bacteriofak.github.io/Solalott/sitemap.xml
+
+# Delay for bots
+Crawl-delay: 1
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
